@@ -1,0 +1,150 @@
+body {
+  font-family: system-ui, sans-serif;
+  background-color: #f4f5f7;
+  color: #222;
+  margin: 0 auto;
+  max-width: 1200px;
+  padding: 1rem;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+main {
+  display: grid;
+  grid-template-columns: 1fr 360px;
+  gap: 1.5rem;
+  align-items: start;
+}
+
+#catalogo {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 1rem;
+}
+
+.producto {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  padding: 0.75rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.producto img {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: contain;
+}
+
+.producto h3 {
+  font-size: 0.95rem;
+  margin: 0.5rem 0;
+  flex-grow: 1;
+}
+
+.producto .precio {
+  font-weight: bold;
+  margin: 0.25rem 0;
+}
+
+.producto .stock {
+  font-size: 0.85rem;
+  color: #666;
+  margin: 0 0 0.5rem;
+}
+
+#carrito {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  padding: 1rem;
+  position: sticky;
+  top: 1rem;
+}
+
+#carrito h2 {
+  margin-top: 0;
+}
+
+#carrito-vacio {
+  color: #888;
+  font-style: italic;
+}
+
+#lineas {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.linea {
+  display: grid;
+  grid-template-columns: 1fr auto auto auto;
+  grid-template-areas:
+    "titulo   titulo   titulo   quitar"
+    "unitario restar   cantidad sumar"
+    "subtotal subtotal subtotal subtotal";
+  gap: 0.25rem 0.5rem;
+  align-items: center;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid #eee;
+}
+
+.linea .titulo   { grid-area: titulo; font-weight: 600; }
+.linea .unitario { grid-area: unitario; color: #666; font-size: 0.9rem; }
+.linea [data-accion="restar"] { grid-area: restar; }
+.linea .cantidad { grid-area: cantidad; min-width: 2ch; text-align: center; }
+.linea [data-accion="sumar"]  { grid-area: sumar; }
+.linea .subtotal { grid-area: subtotal; text-align: right; font-weight: bold; }
+.linea [data-accion="quitar"] { grid-area: quitar; }
+
+button {
+  font: inherit;
+  cursor: pointer;
+  border: 1px solid #3b82f6;
+  background-color: #3b82f6;
+  color: #fff;
+  border-radius: 6px;
+  padding: 0.35rem 0.75rem;
+}
+
+button:hover:not(:disabled) {
+  background-color: #2563eb;
+}
+
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.4;
+}
+
+.linea button {
+  background-color: #fff;
+  color: #3b82f6;
+  padding: 0.15rem 0.6rem;
+}
+
+.linea button:hover:not(:disabled) {
+  background-color: #eef4ff;
+}
+
+.linea [data-accion="quitar"] {
+  border-color: #ef4444;
+  color: #ef4444;
+}
+
+#vaciar {
+  width: 100%;
+  background-color: #fff;
+  color: #ef4444;
+  border-color: #ef4444;
+}
+
+#vaciar:hover:not(:disabled) {
+  background-color: #fef2f2;
+}
