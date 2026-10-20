@@ -168,7 +168,7 @@ catalogo.addEventListener("click", (e) => {
     const nuevaLinea = crearLineaCarrito(id, titulo, precio, stock);
     lineas.appendChild(nuevaLinea);
     actualizarLinea(nuevaLinea, 1);
-    btnAnadir.disabled = true;
+    boton.disabled = true;
   }
 
   actualizarResumenCarrito();
